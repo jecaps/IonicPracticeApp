@@ -1,76 +1,180 @@
-import { Redirect, Route } from 'react-router-dom';
 import {
+  setupIonicReact,
   IonApp,
-  IonIcon,
-  IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
-  setupIonicReact
-} from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+  IonContent,
+  IonPage,
+  IonSearchbar,
+  IonToolbar,
+  IonFooter,
+  IonCard,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonCardContent,
+  IonImg,
+  IonSlides,
+  IonSlide,
+  IonHeader,
+  IonButtons,
+  IonBackButton,
+  IonTitle,
+} from "@ionic/react";
+import { useState } from "react";
+import "./App.css";
 
 /* Core CSS required for Ionic components to work properly */
-import '@ionic/react/css/core.css';
+import "@ionic/react/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
+import "@ionic/react/css/normalize.css";
+import "@ionic/react/css/structure.css";
+import "@ionic/react/css/typography.css";
 
 /* Optional CSS utils that can be commented out */
-import '@ionic/react/css/padding.css';
-import '@ionic/react/css/float-elements.css';
-import '@ionic/react/css/text-alignment.css';
-import '@ionic/react/css/text-transformation.css';
-import '@ionic/react/css/flex-utils.css';
-import '@ionic/react/css/display.css';
+import "@ionic/react/css/padding.css";
+import "@ionic/react/css/float-elements.css";
+import "@ionic/react/css/text-alignment.css";
+import "@ionic/react/css/text-transformation.css";
+import "@ionic/react/css/flex-utils.css";
+import "@ionic/react/css/display.css";
 
 /* Theme variables */
-import './theme/variables.css';
+import "./theme/variables.css";
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
-          </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
-          </Route>
-          <Route path="/tab3">
-            <Tab3 />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/tab1" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
-);
+const slideOpts = {
+  initialSlide: 0,
+  speed: 400,
+};
+
+const App: React.FC = () => {
+  const [searchText, setSearchText] = useState("");
+  return (
+    <>
+      <IonApp>
+        <IonPage>
+          <IonHeader>
+            <IonToolbar color="danger" className="app-header">
+              <IonButtons slot="start">
+                <IonBackButton defaultHref="/" />
+              </IonButtons>
+              <IonTitle>My Navigation Bar</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+
+          <IonContent>
+            <h1 className="popular--title">Popular Recipes</h1>
+            <IonSlides pager={true} options={slideOpts}>
+              <IonSlide>
+                <IonCard>
+                  <IonImg src="https://cdn.pixabay.com/photo/2019/12/20/02/23/india-4707493_1280.jpg" />
+                  <IonCardHeader>
+                    <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                    <IonCardTitle>Card Title</IonCardTitle>
+                  </IonCardHeader>
+
+                  <IonCardContent>
+                    Keep close to Nature's heart... and break clear away, once
+                    in awhile, and climb a mountain or spend a week in the
+                    woods. Wash your spirit clean.
+                  </IonCardContent>
+                </IonCard>
+              </IonSlide>
+              <IonSlide>
+                <IonCard>
+                  <IonImg src="https://images.pexels.com/photos/248509/pexels-photo-248509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+                  <IonCardHeader>
+                    <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                    <IonCardTitle>Card Title</IonCardTitle>
+                  </IonCardHeader>
+
+                  <IonCardContent>
+                    Keep close to Nature's heart... and break clear away, once
+                    in awhile, and climb a mountain or spend a week in the
+                    woods. Wash your spirit clean.
+                  </IonCardContent>
+                </IonCard>
+              </IonSlide>
+              <IonSlide>
+                <IonCard>
+                  <IonImg src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+                  <IonCardHeader>
+                    <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                    <IonCardTitle>Card Title</IonCardTitle>
+                  </IonCardHeader>
+
+                  <IonCardContent>
+                    Keep close to Nature's heart... and break clear away, once
+                    in awhile, and climb a mountain or spend a week in the
+                    woods. Wash your spirit clean.
+                  </IonCardContent>
+                </IonCard>
+              </IonSlide>
+            </IonSlides>
+            <h1 className="popular--title">Veggies Recipes</h1>
+            <IonSlides pager={true} options={slideOpts}>
+              <IonSlide>
+                <IonCard>
+                  <IonImg src="https://cdn.pixabay.com/photo/2019/12/20/02/23/india-4707493_1280.jpg" />
+                  <IonCardHeader>
+                    <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                    <IonCardTitle>Card Title</IonCardTitle>
+                  </IonCardHeader>
+
+                  <IonCardContent>
+                    Keep close to Nature's heart... and break clear away, once
+                    in awhile, and climb a mountain or spend a week in the
+                    woods. Wash your spirit clean.
+                  </IonCardContent>
+                </IonCard>
+              </IonSlide>
+              <IonSlide>
+                <IonCard>
+                  <IonImg src="https://images.pexels.com/photos/248509/pexels-photo-248509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+                  <IonCardHeader>
+                    <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                    <IonCardTitle>Card Title</IonCardTitle>
+                  </IonCardHeader>
+
+                  <IonCardContent>
+                    Keep close to Nature's heart... and break clear away, once
+                    in awhile, and climb a mountain or spend a week in the
+                    woods. Wash your spirit clean.
+                  </IonCardContent>
+                </IonCard>
+              </IonSlide>
+              <IonSlide>
+                <IonCard>
+                  <IonImg src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+                  <IonCardHeader>
+                    <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                    <IonCardTitle>Card Title</IonCardTitle>
+                  </IonCardHeader>
+
+                  <IonCardContent>
+                    Keep close to Nature's heart... and break clear away, once
+                    in awhile, and climb a mountain or spend a week in the
+                    woods. Wash your spirit clean.
+                  </IonCardContent>
+                </IonCard>
+              </IonSlide>
+            </IonSlides>
+          </IonContent>
+
+          <IonFooter>
+            <IonToolbar className="app-footer">
+              <IonSearchbar
+                placeholder="Search Recipe"
+                value={searchText}
+                onIonChange={(e) => setSearchText(e.detail.value!)}
+              ></IonSearchbar>
+            </IonToolbar>
+          </IonFooter>
+        </IonPage>
+      </IonApp>
+    </>
+  );
+};
 
 export default App;
