@@ -3,9 +3,7 @@ import {
   IonApp,
   IonContent,
   IonPage,
-  IonSearchbar,
   IonToolbar,
-  IonFooter,
   IonCard,
   IonCardHeader,
   IonCardSubtitle,
@@ -16,9 +14,10 @@ import {
   IonSlide,
   IonHeader,
   IonTitle,
+  IonIcon,
 } from "@ionic/react";
-import {} from "ionicons/icons";
-import { useState } from "react";
+import { search } from "ionicons/icons";
+import { useState, useEffect } from "react";
 import "./App.css";
 import logo from "./images/kanzept-logo.png";
 
@@ -49,7 +48,36 @@ const slideOpts = {
 };
 
 const App: React.FC = () => {
-  const [searchText, setSearchText] = useState("");
+  const APP_ID = "c43e5a6e";
+  const APP_KEY = "60924f310091be8c1fc7e326cb7d188c";
+
+  const [recipes, setRecipes] = useState([]);
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("chicken");
+
+  useEffect(() => {
+    const getRecipes = async () => {
+      const response = await fetch(
+        `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
+      );
+      const data = await response.json();
+      console.log(data.hits);
+      setRecipes(data.hits);
+    };
+
+    getRecipes();
+  }, [query]);
+
+  const updateSearch = (e: any) => {
+    setSearch(e.target.value);
+  };
+
+  const getSearch = (e: any) => {
+    e.preventDefault();
+    setQuery(search);
+    setSearch("");
+  };
+
   return (
     <>
       <IonApp>
@@ -162,15 +190,30 @@ const App: React.FC = () => {
             </IonSlides>
           </IonContent>
 
-          <IonFooter>
-            <IonToolbar className="app-footer">
+          {/* <IonFooter> */}
+          {/* <IonToolbar className="app-footer">
               <IonSearchbar
                 placeholder="Search Recipe"
-                value={searchText}
-                onIonChange={(e) => setSearchText(e.detail.value!)}
+                value={search}
+                onSubmit={getSearch}
+                onIonChange={updateSearch}
               ></IonSearchbar>
-            </IonToolbar>
-          </IonFooter>
+            </IonToolbar> */}
+          <div className="app-footer--container">
+            <form className="search-form" onSubmit={getSearch}>
+              <input
+                className="search-bar"
+                type="text"
+                value={search}
+                onChange={updateSearch}
+                placeholder="Search Recipe"
+              />
+              <button className="search-button" type="submit">
+                🔍︎
+              </button>
+            </form>
+          </div>
+          {/* </IonFooter> */}
         </IonPage>
       </IonApp>
     </>
