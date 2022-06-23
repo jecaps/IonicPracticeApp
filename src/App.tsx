@@ -15,12 +15,12 @@ import {
   IonSlides,
   IonSlide,
   IonHeader,
-  IonButtons,
-  IonBackButton,
   IonTitle,
 } from "@ionic/react";
+import {} from "ionicons/icons";
 import { useState } from "react";
 import "./App.css";
+import logo from "./images/kanzept-logo.png";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -55,11 +55,11 @@ const App: React.FC = () => {
       <IonApp>
         <IonPage>
           <IonHeader>
-            <IonToolbar color="danger" className="app-header">
-              <IonButtons slot="start">
-                <IonBackButton defaultHref="/" />
-              </IonButtons>
-              <IonTitle>My Navigation Bar</IonTitle>
+            <IonToolbar className="app-header" color="warning">
+              <IonTitle className="app-header--title">
+                Kanzepts
+                <img src={logo} alt="" className="app-header--logo" />
+              </IonTitle>
             </IonToolbar>
           </IonHeader>
 

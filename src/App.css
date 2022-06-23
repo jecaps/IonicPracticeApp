@@ -1,12 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Allison&family=Roboto:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Roboto:wght@400;500;700;900&display=swap");
 
 body {
   font-family: "Roboto", sans-serif;
 }
-
-/* ion-title {
-  margin: 2rem;
-} */
 
 ion-toolbar {
   padding: 0 !important;
@@ -23,7 +19,8 @@ ion-card-content {
   text-align: start;
 }
 
-ion-footer {
+ion-footer,
+ion-title {
   text-align: center;
 }
 
@@ -39,11 +36,22 @@ ion-searchbar {
 }
 
 .popular--title {
-  color: #ed576b;
+  color: #fbbf24;
   margin-left: 2rem;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .swiper-pagination-bullet {
   display: none !important;
+}
+
+.app-header--title {
+  color: #854d0e;
+  font-family: "Annie Use Your Telescope", cursive;
+  font-size: 1.5rem;
+}
+
+.app-header--logo {
+  width: 20px;
+  max-height: 100%;
 }
