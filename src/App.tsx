@@ -190,15 +190,6 @@ const App: React.FC = () => {
             </IonSlides>
           </IonContent>
 
-          {/* <IonFooter> */}
-          {/* <IonToolbar className="app-footer">
-              <IonSearchbar
-                placeholder="Search Recipe"
-                value={search}
-                onSubmit={getSearch}
-                onIonChange={updateSearch}
-              ></IonSearchbar>
-            </IonToolbar> */}
           <div className="app-footer--container">
             <form className="search-form" onSubmit={getSearch}>
               <input
@@ -213,7 +204,6 @@ const App: React.FC = () => {
               </button>
             </form>
           </div>
-          {/* </IonFooter> */}
         </IonPage>
       </IonApp>
     </>

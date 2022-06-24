@@ -61,17 +61,26 @@ ion-searchbar {
   text-align: center;
   padding: 0.5rem;
   background-color: #e4e4e7;
+  border-top: 0.25px solid rgb(212, 212, 212);
+  /* box-shadow: 0 -10px 20px -5px rgba(115, 115, 115, 0.75); */
 }
 
 .search-bar {
   background-color: #fafafa;
-  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  color: rgb(42, 41, 46);
+  padding: 0.5rem;
   border: none;
-  border-start-start-radius: 1rem;
-  border-end-start-radius: 1rem;
+  border-start-start-radius: 0.25rem;
+  border-end-start-radius: 0.25rem;
   height: 2rem;
   font-family: "Roboto", sans-serif;
-  width: 60%;
+  width: 70%;
+}
+
+.search-bar:active,
+.search-bar:focus {
+  outline: none;
+  border: none;
 }
 
 .search-button {
@@ -82,8 +91,8 @@ ion-searchbar {
   font-weight: 500;
   outline: none !important;
   border: none !important;
-  border-start-end-radius: 1rem;
-  border-end-end-radius: 1rem;
+  border-start-end-radius: 0.25rem;
+  border-end-end-radius: 0.25rem;
 }
 
 .search-button:active {
