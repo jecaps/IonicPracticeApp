@@ -4,10 +4,6 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-ion-toolbar {
-  padding: 0 !important;
-}
-
 ion-img {
   object-fit: cover;
   width: 100%;
@@ -19,20 +15,10 @@ ion-card-content {
   text-align: start;
 }
 
-ion-footer,
-ion-title {
-  text-align: center;
-}
-
 ion-searchbar {
   margin: 0 auto;
   padding: 0.5rem !important;
   width: 85% !important;
-}
-
-.toolbar-container {
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
 .popular--title {
@@ -45,24 +31,12 @@ ion-searchbar {
   display: none !important;
 }
 
-.app-header--title {
-  color: #854d0e;
-  font-family: "Annie Use Your Telescope", cursive;
-  font-size: 1.5rem;
-}
-
-.app-header--logo {
-  width: 20px;
-  max-height: 100%;
-}
-
 .app-footer--container {
   width: 100%;
   text-align: center;
   padding: 0.5rem;
   background-color: #e4e4e7;
-  border-top: 0.25px solid rgb(212, 212, 212);
-  /* box-shadow: 0 -10px 20px -5px rgba(115, 115, 115, 0.75); */
+  border-top: 0.25px solid #e4e4e4;
 }
 
 .search-bar {

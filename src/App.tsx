@@ -3,7 +3,6 @@ import {
   IonApp,
   IonContent,
   IonPage,
-  IonToolbar,
   IonCard,
   IonCardHeader,
   IonCardSubtitle,
@@ -12,14 +11,11 @@ import {
   IonImg,
   IonSlides,
   IonSlide,
-  IonHeader,
-  IonTitle,
-  IonIcon,
 } from "@ionic/react";
-import { search } from "ionicons/icons";
+import {} from "ionicons/icons";
 import { useState, useEffect } from "react";
 import "./App.css";
-import logo from "./images/kanzept-logo.png";
+import Header from "./components/Header";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -82,14 +78,7 @@ const App: React.FC = () => {
     <>
       <IonApp>
         <IonPage>
-          <IonHeader>
-            <IonToolbar className="app-header" color="warning">
-              <IonTitle className="app-header--title">
-                Kanzepts
-                <img src={logo} alt="" className="app-header--logo" />
-              </IonTitle>
-            </IonToolbar>
-          </IonHeader>
+          <Header />
 
           <IonContent>
             <h1 className="popular--title">Popular Recipes</h1>
