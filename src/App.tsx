@@ -2,7 +2,6 @@ import {
   setupIonicReact,
   IonApp,
   IonContent,
-  IonPage,
   IonCard,
   IonCardHeader,
   IonCardSubtitle,
@@ -16,6 +15,7 @@ import {} from "ionicons/icons";
 import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -77,123 +77,108 @@ const App: React.FC = () => {
   return (
     <>
       <IonApp>
-        <IonPage>
-          <Header />
+        <Header />
 
-          <IonContent>
-            <h1 className="popular--title">Popular Recipes</h1>
-            <IonSlides pager={true} options={slideOpts}>
-              <IonSlide>
-                <IonCard>
-                  <IonImg src="https://cdn.pixabay.com/photo/2019/12/20/02/23/india-4707493_1280.jpg" />
-                  <IonCardHeader>
-                    <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-                    <IonCardTitle>Card Title</IonCardTitle>
-                  </IonCardHeader>
+        <IonContent>
+          <h1 className="popular--title">Popular Recipes</h1>
+          <IonSlides pager={true} options={slideOpts}>
+            <IonSlide>
+              <IonCard>
+                <IonImg src="https://cdn.pixabay.com/photo/2019/12/20/02/23/india-4707493_1280.jpg" />
+                <IonCardHeader>
+                  <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                  <IonCardTitle>Card Title</IonCardTitle>
+                </IonCardHeader>
 
-                  <IonCardContent>
-                    Keep close to Nature's heart... and break clear away, once
-                    in awhile, and climb a mountain or spend a week in the
-                    woods. Wash your spirit clean.
-                  </IonCardContent>
-                </IonCard>
-              </IonSlide>
-              <IonSlide>
-                <IonCard>
-                  <IonImg src="https://images.pexels.com/photos/248509/pexels-photo-248509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-                  <IonCardHeader>
-                    <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-                    <IonCardTitle>Card Title</IonCardTitle>
-                  </IonCardHeader>
+                <IonCardContent>
+                  Keep close to Nature's heart... and break clear away, once in
+                  awhile, and climb a mountain or spend a week in the woods.
+                  Wash your spirit clean.
+                </IonCardContent>
+              </IonCard>
+            </IonSlide>
+            <IonSlide>
+              <IonCard>
+                <IonImg src="https://images.pexels.com/photos/248509/pexels-photo-248509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+                <IonCardHeader>
+                  <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                  <IonCardTitle>Card Title</IonCardTitle>
+                </IonCardHeader>
 
-                  <IonCardContent>
-                    Keep close to Nature's heart... and break clear away, once
-                    in awhile, and climb a mountain or spend a week in the
-                    woods. Wash your spirit clean.
-                  </IonCardContent>
-                </IonCard>
-              </IonSlide>
-              <IonSlide>
-                <IonCard>
-                  <IonImg src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-                  <IonCardHeader>
-                    <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-                    <IonCardTitle>Card Title</IonCardTitle>
-                  </IonCardHeader>
+                <IonCardContent>
+                  Keep close to Nature's heart... and break clear away, once in
+                  awhile, and climb a mountain or spend a week in the woods.
+                  Wash your spirit clean.
+                </IonCardContent>
+              </IonCard>
+            </IonSlide>
+            <IonSlide>
+              <IonCard>
+                <IonImg src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+                <IonCardHeader>
+                  <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                  <IonCardTitle>Card Title</IonCardTitle>
+                </IonCardHeader>
 
-                  <IonCardContent>
-                    Keep close to Nature's heart... and break clear away, once
-                    in awhile, and climb a mountain or spend a week in the
-                    woods. Wash your spirit clean.
-                  </IonCardContent>
-                </IonCard>
-              </IonSlide>
-            </IonSlides>
-            <h1 className="popular--title">Veggies Recipes</h1>
-            <IonSlides pager={true} options={slideOpts}>
-              <IonSlide>
-                <IonCard>
-                  <IonImg src="https://cdn.pixabay.com/photo/2019/12/20/02/23/india-4707493_1280.jpg" />
-                  <IonCardHeader>
-                    <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-                    <IonCardTitle>Card Title</IonCardTitle>
-                  </IonCardHeader>
+                <IonCardContent>
+                  Keep close to Nature's heart... and break clear away, once in
+                  awhile, and climb a mountain or spend a week in the woods.
+                  Wash your spirit clean.
+                </IonCardContent>
+              </IonCard>
+            </IonSlide>
+          </IonSlides>
+          <h1 className="popular--title">Veggies Recipes</h1>
+          <IonSlides pager={true} options={slideOpts}>
+            <IonSlide>
+              <IonCard>
+                <IonImg src="https://cdn.pixabay.com/photo/2019/12/20/02/23/india-4707493_1280.jpg" />
+                <IonCardHeader>
+                  <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                  <IonCardTitle>Card Title</IonCardTitle>
+                </IonCardHeader>
 
-                  <IonCardContent>
-                    Keep close to Nature's heart... and break clear away, once
-                    in awhile, and climb a mountain or spend a week in the
-                    woods. Wash your spirit clean.
-                  </IonCardContent>
-                </IonCard>
-              </IonSlide>
-              <IonSlide>
-                <IonCard>
-                  <IonImg src="https://images.pexels.com/photos/248509/pexels-photo-248509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-                  <IonCardHeader>
-                    <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-                    <IonCardTitle>Card Title</IonCardTitle>
-                  </IonCardHeader>
+                <IonCardContent>
+                  Keep close to Nature's heart... and break clear away, once in
+                  awhile, and climb a mountain or spend a week in the woods.
+                  Wash your spirit clean.
+                </IonCardContent>
+              </IonCard>
+            </IonSlide>
+            <IonSlide>
+              <IonCard>
+                <IonImg src="https://images.pexels.com/photos/248509/pexels-photo-248509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+                <IonCardHeader>
+                  <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                  <IonCardTitle>Card Title</IonCardTitle>
+                </IonCardHeader>
 
-                  <IonCardContent>
-                    Keep close to Nature's heart... and break clear away, once
-                    in awhile, and climb a mountain or spend a week in the
-                    woods. Wash your spirit clean.
-                  </IonCardContent>
-                </IonCard>
-              </IonSlide>
-              <IonSlide>
-                <IonCard>
-                  <IonImg src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-                  <IonCardHeader>
-                    <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-                    <IonCardTitle>Card Title</IonCardTitle>
-                  </IonCardHeader>
+                <IonCardContent>
+                  Keep close to Nature's heart... and break clear away, once in
+                  awhile, and climb a mountain or spend a week in the woods.
+                  Wash your spirit clean.
+                </IonCardContent>
+              </IonCard>
+            </IonSlide>
+            <IonSlide>
+              <IonCard>
+                <IonImg src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+                <IonCardHeader>
+                  <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                  <IonCardTitle>Card Title</IonCardTitle>
+                </IonCardHeader>
 
-                  <IonCardContent>
-                    Keep close to Nature's heart... and break clear away, once
-                    in awhile, and climb a mountain or spend a week in the
-                    woods. Wash your spirit clean.
-                  </IonCardContent>
-                </IonCard>
-              </IonSlide>
-            </IonSlides>
-          </IonContent>
+                <IonCardContent>
+                  Keep close to Nature's heart... and break clear away, once in
+                  awhile, and climb a mountain or spend a week in the woods.
+                  Wash your spirit clean.
+                </IonCardContent>
+              </IonCard>
+            </IonSlide>
+          </IonSlides>
+        </IonContent>
 
-          <div className="app-footer--container">
-            <form className="search-form" onSubmit={getSearch}>
-              <input
-                className="search-bar"
-                type="text"
-                value={search}
-                onChange={updateSearch}
-                placeholder="Search Recipe"
-              />
-              <button className="search-button" type="submit">
-                🔍︎
-              </button>
-            </form>
-          </div>
-        </IonPage>
+        <Footer submit={getSearch} search={search} change={updateSearch} />
       </IonApp>
     </>
   );
