@@ -1,21 +1,12 @@
-import {
-  setupIonicReact,
-  IonApp,
-  IonContent,
-  IonCard,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonCardContent,
-  IonImg,
-  IonSlides,
-  IonSlide,
-} from "@ionic/react";
+import { setupIonicReact, IonApp, IonContent, IonSlides } from "@ionic/react";
 import {} from "ionicons/icons";
 import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Slides from "./components/Slides";
+import popularData from "./popularData";
+import veganData from "./veganData";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -44,25 +35,35 @@ const slideOpts = {
 };
 
 const App: React.FC = () => {
-  const APP_ID = "c43e5a6e";
-  const APP_KEY = "60924f310091be8c1fc7e326cb7d188c";
-
-  const [recipes, setRecipes] = useState([]);
+  const [popular, setPopular] = useState(popularData);
+  const [vegan, setVegan] = useState(veganData);
+  // const [popular, setPopular] = useState<any[]>([]);
+  // const [vegan, setVegan] = useState<any[]>([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("chicken");
+  const [query, setQuery] = useState("");
 
-  useEffect(() => {
-    const getRecipes = async () => {
-      const response = await fetch(
-        `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
-      );
-      const data = await response.json();
-      console.log(data.hits);
-      setRecipes(data.hits);
-    };
+  // useEffect(() => {
+  //   const getPopular = async () => {
+  //     const api = await fetch(
+  //       `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&tags=meat&number=6`
+  //     );
+  //     const data = await api.json();
+  //     console.log(data);
+  //     setPopular(data.recipes);
+  //   };
 
-    getRecipes();
-  }, [query]);
+  //   const getVegan = async () => {
+  //     const api = await fetch(
+  //       `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&tags=vegan&number=6`
+  //     );
+  //     const data = await api.json();
+  //     console.log(data);
+  //     setVegan(data.recipes);
+  //   };
+
+  //   getPopular();
+  //   getVegan();
+  // }, [query]);
 
   const updateSearch = (e: any) => {
     setSearch(e.target.value);
@@ -74,6 +75,36 @@ const App: React.FC = () => {
     setSearch("");
   };
 
+  const popularSlideElement = popular.map((recipe) => {
+    return (
+      <Slides
+        key={recipe.id}
+        image={recipe.image}
+        time={recipe.readyInMinutes}
+        title={recipe.title}
+        price={recipe.pricePerServing}
+        score={recipe.healthScore}
+        summary={recipe.summary}
+        vegan={recipe.vegan}
+      />
+    );
+  });
+
+  const veganSlideElement = vegan.map((recipe) => {
+    return (
+      <Slides
+        key={recipe.id}
+        image={recipe.image}
+        time={recipe.readyInMinutes}
+        title={recipe.title}
+        price={recipe.pricePerServing}
+        score={recipe.healthScore}
+        summary={recipe.summary}
+        vegan={recipe.vegan}
+      />
+    );
+  });
+
   return (
     <>
       <IonApp>
@@ -82,99 +113,11 @@ const App: React.FC = () => {
         <IonContent>
           <h1 className="popular--title">Popular Recipes</h1>
           <IonSlides pager={true} options={slideOpts}>
-            <IonSlide>
-              <IonCard>
-                <IonImg src="https://cdn.pixabay.com/photo/2019/12/20/02/23/india-4707493_1280.jpg" />
-                <IonCardHeader>
-                  <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-                  <IonCardTitle>Card Title</IonCardTitle>
-                </IonCardHeader>
-
-                <IonCardContent>
-                  Keep close to Nature's heart... and break clear away, once in
-                  awhile, and climb a mountain or spend a week in the woods.
-                  Wash your spirit clean.
-                </IonCardContent>
-              </IonCard>
-            </IonSlide>
-            <IonSlide>
-              <IonCard>
-                <IonImg src="https://images.pexels.com/photos/248509/pexels-photo-248509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-                <IonCardHeader>
-                  <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-                  <IonCardTitle>Card Title</IonCardTitle>
-                </IonCardHeader>
-
-                <IonCardContent>
-                  Keep close to Nature's heart... and break clear away, once in
-                  awhile, and climb a mountain or spend a week in the woods.
-                  Wash your spirit clean.
-                </IonCardContent>
-              </IonCard>
-            </IonSlide>
-            <IonSlide>
-              <IonCard>
-                <IonImg src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-                <IonCardHeader>
-                  <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-                  <IonCardTitle>Card Title</IonCardTitle>
-                </IonCardHeader>
-
-                <IonCardContent>
-                  Keep close to Nature's heart... and break clear away, once in
-                  awhile, and climb a mountain or spend a week in the woods.
-                  Wash your spirit clean.
-                </IonCardContent>
-              </IonCard>
-            </IonSlide>
+            {popularSlideElement}
           </IonSlides>
           <h1 className="popular--title">Veggies Recipes</h1>
           <IonSlides pager={true} options={slideOpts}>
-            <IonSlide>
-              <IonCard>
-                <IonImg src="https://cdn.pixabay.com/photo/2019/12/20/02/23/india-4707493_1280.jpg" />
-                <IonCardHeader>
-                  <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-                  <IonCardTitle>Card Title</IonCardTitle>
-                </IonCardHeader>
-
-                <IonCardContent>
-                  Keep close to Nature's heart... and break clear away, once in
-                  awhile, and climb a mountain or spend a week in the woods.
-                  Wash your spirit clean.
-                </IonCardContent>
-              </IonCard>
-            </IonSlide>
-            <IonSlide>
-              <IonCard>
-                <IonImg src="https://images.pexels.com/photos/248509/pexels-photo-248509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-                <IonCardHeader>
-                  <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-                  <IonCardTitle>Card Title</IonCardTitle>
-                </IonCardHeader>
-
-                <IonCardContent>
-                  Keep close to Nature's heart... and break clear away, once in
-                  awhile, and climb a mountain or spend a week in the woods.
-                  Wash your spirit clean.
-                </IonCardContent>
-              </IonCard>
-            </IonSlide>
-            <IonSlide>
-              <IonCard>
-                <IonImg src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-                <IonCardHeader>
-                  <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-                  <IonCardTitle>Card Title</IonCardTitle>
-                </IonCardHeader>
-
-                <IonCardContent>
-                  Keep close to Nature's heart... and break clear away, once in
-                  awhile, and climb a mountain or spend a week in the woods.
-                  Wash your spirit clean.
-                </IonCardContent>
-              </IonCard>
-            </IonSlide>
+            {veganSlideElement}
           </IonSlides>
         </IonContent>
 
